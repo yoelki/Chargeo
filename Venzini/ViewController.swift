@@ -47,12 +47,18 @@ class ViewController: UIViewController {
                     return
                 }
                 
-                let responseString = String(data: data, encoding: .utf8)
-                
-                print(responseString!)
+                let responseString = String(data: data, encoding: .utf8)!
+                print(responseString)
+
+                 //here dataResponse received from a network request
+                guard let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String:AnyObject] else { return }
+                guard let url = URL(string: (json["maplink"] as? String)!) else { return }
+                DispatchQueue.main.async {
+                    UIApplication.shared.open(url)
+                }
             }.resume()
         }
-            
+        
         putDestination(putRequest: putRequest, getRequest: getRequest, callback: handlerBlock)
     }
     
