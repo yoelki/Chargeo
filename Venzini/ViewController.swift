@@ -17,9 +17,8 @@ class ViewController: UIViewController {
     }
     
     let getUrlString = "http://10.198.55.184:3000/server/route"
-    
     let handlerBlock: (URLRequest) -> Void = { request in
-        let timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(notify), userInfo: nil, repeats: false)
+        
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data,
                 let response = response as? HTTPURLResponse,
@@ -44,9 +43,7 @@ class ViewController: UIViewController {
             // open google maps link and demo notification
             DispatchQueue.main.async {
                 UIApplication.shared.open(url)
-                timer.fire()
             }
-            
         }.resume()
     }
     
@@ -64,7 +61,15 @@ class ViewController: UIViewController {
         
         var getRequest = URLRequest(url: getUrl)
         getRequest.httpMethod = "GET"
-        
+        var runCount = 0
+        let timer = Timer.scheduledTimer(withTimeInterval: 60.0, repeats: true, block: {timer in
+            if runCount == 1 {
+                self.notify()
+                timer.invalidate()
+            }
+            runCount += 1
+        })
+        timer.fire()
         putDestination(putRequest: putRequest, getRequest: getRequest, callback: handlerBlock)
     }
     
@@ -87,10 +92,9 @@ class ViewController: UIViewController {
             
             callback(getRequest) // callback to handlerBlock
         }.resume()
-        
     }
     
-    @objc func notify() -> Void {
+    func notify() {
         let content = UNMutableNotificationContent()
         content.title = "Your smartcar is running low on charge!";
         content.body = "Tap to add a charging station to your route"
@@ -118,8 +122,9 @@ class ViewController: UIViewController {
                 print("response = \(response)")
                 return
             }
-            
-            self.handlerBlock(URLRequest(url: URL(string: self.getUrlString)!))
+            var routeWithStopRequest = URLRequest(url: URL(string: self.getUrlString)!)
+            routeWithStopRequest.httpMethod = "GET"
+            self.handlerBlock(routeWithStopRequest)
             
         }.resume()
     }
