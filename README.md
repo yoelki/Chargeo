@@ -1,2 +1,2 @@
-# Venzini
+# Chargeo
 The smart energy navigator
