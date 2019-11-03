@@ -10,12 +10,46 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var destinationEntry: UITextField!
+    @IBOutlet var goButton: UIButton!
+    @IBOutlet var progressView: UIProgressView!
+    @IBOutlet var batteryStatus: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view
         goButton.layer.cornerRadius = 30
         goButton.clipsToBounds = true
+        destinationEntry.layer.cornerRadius = 15
+        destinationEntry.layer.borderColor = UIColor.white.cgColor
+        destinationEntry.layer.borderWidth = 1
+        progressView.transform = progressView.transform.scaledBy(x: 1, y: 20)
+        progressView.setProgress(0.88, animated: true)
     }
+//
+//    func getBatteryStatus() -> Int {
+//        let batteryUrlString = "http://10.198.55.184:3000/server/batteryreroll"
+//        let batteryUrl = URL(string: batteryUrlString)!
+//        var batteryRequest = URLRequest(url: batteryUrl)
+//        batteryRequest.httpMethod = "GET"
+//
+//        URLSession.shared.dataTask(with: batteryRequest) { data, response, error in
+//            guard let data = data,
+//                let response = response as? HTTPURLResponse,
+//                error == nil else {                                              // check for fundamental networking error
+//                print("error", error ?? "Unknown error")
+//                return
+//            }
+//
+//            guard (200 ... 299) ~= response.statusCode else {                    // check for http errors
+//                print("statusCode should be 2xx, but is \(response.statusCode)")
+//                print("response = \(response)")
+//                return
+//            }
+//
+//            return Int(string: (json["maplink"] as? String)!)
+//        }
+//    }
     
     let getUrlString = "http://10.198.55.184:3000/server/route"
     let handlerBlock: (URLRequest) -> Void = { request in
@@ -48,13 +82,9 @@ class ViewController: UIViewController {
         }.resume()
     }
     
-    @IBOutlet var destinationEntry: UITextField!
-    @IBOutlet var goButton: UIButton!
-    
     @IBAction func goButtonPressed(_ sender: Any) {
         let parameters = destinationEntry.text!.replacingOccurrences(of: " ", with: "+")
         let putUrlString = "http://10.198.55.184:3000/server/destination/\(parameters)"
-        
         let putUrl = URL(string: putUrlString)!
         let getUrl = URL(string: getUrlString)!
         
@@ -65,6 +95,8 @@ class ViewController: UIViewController {
         getRequest.httpMethod = "GET"
         self.notify()
         putDestination(putRequest: putRequest, getRequest: getRequest, callback: handlerBlock)
+        progressView.setProgress(0.22, animated: true)
+        batteryStatus.text = "22%"
     }
     
     func putDestination(putRequest: URLRequest, getRequest: URLRequest, callback: @escaping (URLRequest) -> Void) {
@@ -92,7 +124,7 @@ class ViewController: UIViewController {
         let content = UNMutableNotificationContent()
         content.title = "Your smartcar is running low on charge!";
         content.body = "Tap to add a charging station to your route"
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 45, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
         let request = UNNotificationRequest(identifier: "timeDone", content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
@@ -102,9 +134,8 @@ class ViewController: UIViewController {
         let batteryUrl = URL(string: batteryUrlString)!
         var batteryRequest = URLRequest(url: batteryUrl)
         batteryRequest.httpMethod = "GET"
-        
         URLSession.shared.dataTask(with: batteryRequest) { data, response, error in
-            guard let _ = data,
+            guard let data = data,
                 let response = response as? HTTPURLResponse,
                 error == nil else {                                              // check for fundamental networking error
                 print("error", error ?? "Unknown error")
@@ -119,7 +150,6 @@ class ViewController: UIViewController {
             var routeWithStopRequest = URLRequest(url: URL(string: self.getUrlString)!)
             routeWithStopRequest.httpMethod = "GET"
             self.handlerBlock(routeWithStopRequest)
-            
         }.resume()
     }
 }

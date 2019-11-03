@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Venzini.xcodeproj">
+      location = "self:/Users/yoel/Desktop/Xcode Projects/Venzini/Chargeo.xcodeproj">
    </FileRef>
 </Workspace>
