@@ -78,6 +78,7 @@ router.get("/route", async (request, response) => {
 
 
 
+
   // console.log(location.data.latitude);
   // console.log(location.data.longitude);
 
@@ -146,6 +147,17 @@ router.put("/destination/:dest", async (request, response) => {
     }
     console.log(destination);
     response.send(destination);
+
+});
+
+router.put("/battery/:num", async (request, response) => {
+    try {
+        batteryLevel = parseFloat(request.params.num);
+    } catch (error) {
+        response.status(500).send(error);
+    }
+    console.log(batteryLevel);
+    response.send(''+batteryLevel);
 
 });
 
