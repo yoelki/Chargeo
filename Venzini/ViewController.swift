@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet var destinationEntry: UITextField!
-    @IBOutlet var label: UILabel!
     
     @IBAction func goButtonPressed(_ sender: Any) {
         let parameters = destinationEntry.text!.replacingOccurrences(of: " ", with: "+")
@@ -79,4 +78,3 @@ class ViewController: UIViewController {
         
     }
 }
-
