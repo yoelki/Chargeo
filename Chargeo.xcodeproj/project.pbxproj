@@ -13,10 +13,12 @@
 		4CB719D3236E5EEC00349163 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CB719D1236E5EEC00349163 /* Main.storyboard */; };
 		4CB719D5236E5EEF00349163 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CB719D4236E5EEF00349163 /* Assets.xcassets */; };
 		4CB719D8236E5EEF00349163 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CB719D6236E5EEF00349163 /* LaunchScreen.storyboard */; };
+		4CC5552D236F12C200584F7D /* 神奈川県藤沢市市章.svg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CC5552C236F12C200584F7D /* 神奈川県藤沢市市章.svg.png */; };
+		4CC5552F236F34FF00584F7D /* eccs.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CC5552E236F34FF00584F7D /* eccs.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4CB719C8236E5EEC00349163 /* Venzini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Venzini.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CB719C8236E5EEC00349163 /* Chargeo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chargeo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CB719CB236E5EEC00349163 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CB719CD236E5EEC00349163 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4CB719CF236E5EEC00349163 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		4CB719D4236E5EEF00349163 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CB719D7236E5EEF00349163 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CB719D9236E5EEF00349163 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CC5552C236F12C200584F7D /* 神奈川県藤沢市市章.svg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "神奈川県藤沢市市章.svg.png"; path = "../../../../Downloads/神奈川県藤沢市市章.svg.png"; sourceTree = "<group>"; };
+		4CC5552E236F34FF00584F7D /* eccs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eccs.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +52,7 @@
 		4CB719C9236E5EEC00349163 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4CB719C8236E5EEC00349163 /* Venzini.app */,
+				4CB719C8236E5EEC00349163 /* Chargeo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,6 +60,8 @@
 		4CB719CA236E5EEC00349163 /* Venzini */ = {
 			isa = PBXGroup;
 			children = (
+				4CC5552E236F34FF00584F7D /* eccs.png */,
+				4CC5552C236F12C200584F7D /* 神奈川県藤沢市市章.svg.png */,
 				4CB719CB236E5EEC00349163 /* AppDelegate.swift */,
 				4CB719CD236E5EEC00349163 /* SceneDelegate.swift */,
 				4CB719CF236E5EEC00349163 /* ViewController.swift */,
@@ -70,9 +76,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4CB719C7236E5EEC00349163 /* Venzini */ = {
+		4CB719C7236E5EEC00349163 /* Chargeo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4CB719DC236E5EEF00349163 /* Build configuration list for PBXNativeTarget "Venzini" */;
+			buildConfigurationList = 4CB719DC236E5EEF00349163 /* Build configuration list for PBXNativeTarget "Chargeo" */;
 			buildPhases = (
 				4CB719C4236E5EEC00349163 /* Sources */,
 				4CB719C5236E5EEC00349163 /* Frameworks */,
@@ -82,9 +88,9 @@
 			);
 			dependencies = (
 			);
-			name = Venzini;
+			name = Chargeo;
 			productName = Venzini;
-			productReference = 4CB719C8236E5EEC00349163 /* Venzini.app */;
+			productReference = 4CB719C8236E5EEC00349163 /* Chargeo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +108,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4CB719C3236E5EEC00349163 /* Build configuration list for PBXProject "Venzini" */;
+			buildConfigurationList = 4CB719C3236E5EEC00349163 /* Build configuration list for PBXProject "Chargeo" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +121,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4CB719C7236E5EEC00349163 /* Venzini */,
+				4CB719C7236E5EEC00349163 /* Chargeo */,
 			);
 		};
 /* End PBXProject section */
@@ -126,8 +132,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CB719D8236E5EEF00349163 /* LaunchScreen.storyboard in Resources */,
+				4CC5552F236F34FF00584F7D /* eccs.png in Resources */,
 				4CB719D5236E5EEF00349163 /* Assets.xcassets in Resources */,
 				4CB719D3236E5EEC00349163 /* Main.storyboard in Resources */,
+				4CC5552D236F12C200584F7D /* 神奈川県藤沢市市章.svg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +224,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +278,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -284,15 +292,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SZASZ8AGXG;
 				INFOPLIST_FILE = Venzini/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoco.Venzini;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -302,15 +313,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SZASZ8AGXG;
 				INFOPLIST_FILE = Venzini/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoco.Venzini;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -319,7 +333,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4CB719C3236E5EEC00349163 /* Build configuration list for PBXProject "Venzini" */ = {
+		4CB719C3236E5EEC00349163 /* Build configuration list for PBXProject "Chargeo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4CB719DA236E5EEF00349163 /* Debug */,
@@ -328,7 +342,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4CB719DC236E5EEF00349163 /* Build configuration list for PBXNativeTarget "Venzini" */ = {
+		4CB719DC236E5EEF00349163 /* Build configuration list for PBXNativeTarget "Chargeo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4CB719DD236E5EEF00349163 /* Debug */,
