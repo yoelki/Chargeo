@@ -13,7 +13,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view
-        
+        goButton.layer.cornerRadius = 30
+        goButton.clipsToBounds = true
     }
     
     let getUrlString = "http://10.198.55.184:3000/server/route"
@@ -48,6 +49,7 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet var destinationEntry: UITextField!
+    @IBOutlet var goButton: UIButton!
     
     @IBAction func goButtonPressed(_ sender: Any) {
         let parameters = destinationEntry.text!.replacingOccurrences(of: " ", with: "+")
@@ -61,15 +63,7 @@ class ViewController: UIViewController {
         
         var getRequest = URLRequest(url: getUrl)
         getRequest.httpMethod = "GET"
-        var runCount = 0
-        let timer = Timer.scheduledTimer(withTimeInterval: 60.0, repeats: true, block: {timer in
-            if runCount == 1 {
-                self.notify()
-                timer.invalidate()
-            }
-            runCount += 1
-        })
-        timer.fire()
+        self.notify()
         putDestination(putRequest: putRequest, getRequest: getRequest, callback: handlerBlock)
     }
     
@@ -98,7 +92,7 @@ class ViewController: UIViewController {
         let content = UNMutableNotificationContent()
         content.title = "Your smartcar is running low on charge!";
         content.body = "Tap to add a charging station to your route"
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 45, repeats: false)
         let request = UNNotificationRequest(identifier: "timeDone", content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
